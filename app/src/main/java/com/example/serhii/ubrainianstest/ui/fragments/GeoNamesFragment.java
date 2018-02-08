@@ -164,6 +164,12 @@ public class GeoNamesFragment extends android.support.v4.app.Fragment implements
         });
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mRealm.close();
+    }
+
     public AppComponent getAppComponent() {
         return getApp().appComponent();
     }
