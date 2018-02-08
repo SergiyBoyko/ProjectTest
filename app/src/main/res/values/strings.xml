@@ -10,4 +10,7 @@
     <string name="no">No</string>
     <string name="realm_id">id</string>
     <string name="realm_name">name</string>
+    <string name="dowloading">Downloading...</string>
+    <string name="no_correct_zip_url">No correct zip url</string>
+    <string name="test_url">https://www.look.com.ua/top/look.com.ua_2016.02-111-1366x768.zip</string>
 </resources>
