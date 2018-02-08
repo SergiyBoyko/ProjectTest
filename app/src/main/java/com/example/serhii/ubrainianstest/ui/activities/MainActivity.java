@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 
 import com.example.serhii.ubrainianstest.R;
 import com.example.serhii.ubrainianstest.ui.fragments.GeoNamesFragment;
@@ -38,6 +39,25 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(GeoNamesFragment.newInstance(), getResources().getString(R.string.geo_names_title));
         adapter.addFragment(PanoramaImageFragment.newInstance(), getResources().getString(R.string.panorama_title));
         adapter.addFragment(ZipImageFragment.newInstance(), getResources().getString(R.string.zip_image_title));
+
+        // Hide keyboard when it not needed
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (getCurrentFocus() != null) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
         viewPager.setAdapter(adapter);
     }
