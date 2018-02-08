@@ -3,4 +3,11 @@
     <string name="geo_names_title">GEO</string>
     <string name="panorama_title">PANORAMA</string>
     <string name="zip_image_title">ZIP</string>
+    <string name="request_execution_has_failed">Request execution has failed. Check your internet connection</string>
+    <string name="no_results">No Results</string>
+    <string name="delete_this_saved_element">Delete?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="realm_id">id</string>
+    <string name="realm_name">name</string>
 </resources>
