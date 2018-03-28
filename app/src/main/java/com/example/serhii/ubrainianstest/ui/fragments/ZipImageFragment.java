@@ -3,6 +3,7 @@ package com.example.serhii.ubrainianstest.ui.fragments;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,7 @@ public class ZipImageFragment extends android.support.v4.app.Fragment {
     private void showImages() {
         mDownButton.setClickable(true);
         mProgressDialog.hide();
-        String directory = Decompress.getRootLocation();
+        String directory = Decompress.getRootLocation(getContext());
         ArrayList<File> allFiles = new ArrayList<>();
         listf(directory, allFiles);
 
@@ -92,7 +93,7 @@ public class ZipImageFragment extends android.support.v4.app.Fragment {
         mProgressDialog.setMessage(getString(R.string.dowloading));
         mProgressDialog.show();
 
-        DownloadFileAsync download = new DownloadFileAsync("/sdcard/content.zip", getContext(), file -> {
+        DownloadFileAsync download = new DownloadFileAsync(getContext().getFilesDir() + "/content.zip", getContext(), file -> {
             Decompress unzip = new Decompress(ZipImageFragment.this.getContext(), file);
             unzip.unzip();
 

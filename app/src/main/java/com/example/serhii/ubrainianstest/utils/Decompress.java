@@ -27,7 +27,7 @@ public class Decompress {
     public Decompress(Context context, File zipFile) {
         _zipFile = zipFile;
         this.context = context;
-        File directory = new File(Environment.getExternalStorageDirectory(), "UbrainiansUnZip");
+        File directory = new File(context.getFilesDir(), "UbrainiansUnZip");
         if (!directory.exists()) {
             directory.mkdirs();
         }
@@ -86,9 +86,9 @@ public class Decompress {
         }
     }
 
-    public static String getRootLocation() {
+    public static String getRootLocation(Context context) {
         if (rootLocation == null) {
-            File directory = new File(Environment.getExternalStorageDirectory(), "UbrainiansUnZip");
+            File directory = new File(context.getFilesDir(), "UbrainiansUnZip");
             if (!directory.exists()) {
                 directory.mkdirs();
             }

@@ -43,7 +43,7 @@ import io.realm.RealmResults;
  */
 
 public class GeoNamesFragment extends android.support.v4.app.Fragment implements GeonamesView,
-        SearchResultAdapter.OnResultClickListener, SavedResultAdapter.OnHistoryLongClickListener{
+        SearchResultAdapter.OnResultClickListener, SavedResultAdapter.OnHistoryLongClickListener {
 
     @BindView(R.id.card_view)
     CardView mSearchContainer;
